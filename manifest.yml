@@ -1,5 +1,5 @@
 applications:
-- name: service-broker
+- name: hello-world
   disk_quota: 256M
   instances: 1
   memory: 256M
