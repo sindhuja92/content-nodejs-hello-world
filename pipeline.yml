@@ -1,0 +1,23 @@
+---
+resources:
+- name: my-repo
+  type: git
+  source:
+    branch: master
+    uri: https://github.com/sindhuja92/content-nodejs-hello-world.git
+    
+jobs:
+- name: deploy-cf
+  plan:
+  - get: my-repo
+    trigger: true
+  - task: deploy-cf-nodeapp
+    config:
+        inputs:
+        - name: my-repo
+        platform: linux
+        image_resource:
+          type: docker-image
+          source: {repository: centos}
+        run:
+          path: ./content-nodejs-hello-world/script.sh
