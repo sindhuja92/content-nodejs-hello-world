@@ -1,0 +1,47 @@
+---
+
+resources:
+  - name: concourse-poc
+    type: git
+    source: 
+      uri: https://github.com/sindhuja92/content-nodejs-hello-world.git
+      branch: master
+      username: sindhuja92
+      password: Venkata92!
+
+jobs: 
+- name: memory-test
+  plan:
+    - get: concourse-poc
+    - task: build-code
+      config:
+         platform: linux  
+         image_resource:
+            type: docker-image
+            source: { repository: node }
+      
+         run:
+           path: sh
+           args: 
+           - -exc
+           - |
+             git clone concourse-poc concourse-poc-new
+             chmod -R 755 ./concourse-poc-new
+             cd ./concourse-poc-new
+             ./scripts/repeat.sh &
+             PID=$!
+             echo $PID
+             npm install
+             ls -al
+             git config --global user.email "sivutukuri@mix.wvu.edu"
+             git config --global user.name "sindhuja92"
+             git add memoryUsageBytes.txt cpuUsageInNanoSecs.txt freememoryInMB.txt
+             git commit -m "adding stat files"
+             kill $PID
+
+         inputs:
+         - name: concourse-poc
+         outputs:
+         - name: concourse-poc-new
+    - put: concourse-poc 
+      params: { repository: concourse-poc-new }           
