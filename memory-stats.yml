@@ -7,7 +7,7 @@ resources:
       uri: https://github.com/sindhuja92/content-nodejs-hello-world.git
       branch: master
       username: sindhuja92
-      password: Venkata92!
+      password: 
 
 jobs: 
 - name: memory-test
