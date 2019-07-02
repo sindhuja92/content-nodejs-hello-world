@@ -28,3 +28,18 @@ Tue Jul 2 09:37:34 EST 2019
 Mem:          16046         441       13005           8        2599       15264
 Swap:             0           0           0
 ------------------------------
+Tue Jul 2 09:38:47 EST 2019
+              total        used        free      shared  buff/cache   available
+Mem:          16046         307       12927           8        2810       15399
+Swap:             0           0           0
+------------------------------
+Tue Jul 2 09:38:50 EST 2019
+              total        used        free      shared  buff/cache   available
+Mem:          16046         411       12799           8        2834       15295
+Swap:             0           0           0
+------------------------------
+Tue Jul 2 09:38:53 EST 2019
+              total        used        free      shared  buff/cache   available
+Mem:          16046         445       12696           8        2903       15261
+Swap:             0           0           0
+------------------------------
